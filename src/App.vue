@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <h1>My Music</h1>
+      <img src="./assets/logo.svg" class="img-fluid" alt="site logo">
+      <h1>Music Player</h1>
     </header>
     <main>
       <section class="player">
@@ -35,17 +36,17 @@ export default {
         {
           title: 'Circles',
           artist: 'Post Malone',
-          src: require('./assets/circles.mp3')
+          src: require('./assets/music/circles.mp3')
         },
         {
           title: 'Paris',
           artist: 'The Chainsmokers',
-          src: require('./assets/paris.mp3')
+          src: require('./assets/music/paris.mp3')
         },
         {
           title: 'Blinding Lights',
           artist: 'The Weeknd',
-          src: require('./assets/blinding-lights.mp3')
+          src: require('./assets/music/blinding-lights.mp3')
         }
       ],
       player: new Audio()
@@ -118,6 +119,10 @@ header {
   padding: 15px;
   background-color: #212121;
   color: #fff;
+
+  img {
+    margin-right: 20px;
+  }
 }
 
 main {
