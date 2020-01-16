@@ -8,10 +8,10 @@
       <section class="player">
         <h2 class="song-title">{{ current.title }} - <span>{{ current.artist }}</span></h2>
         <div class="controls">
-          <button class="prev" @click="prev">Prev</button>
-          <button class="play" v-if="!isPlaying" @click="play">Play</button>
-          <button class="pause" v-else @click="pause">Pause</button>
-          <button class="next" @click="next">Next</button>
+          <button class="prev" @click="prev"><i class="fas fa-step-backward"></i> Prev</button>
+          <button class="play" v-if="!isPlaying" @click="play">Play <i class="far fa-play-circle"></i></button>
+          <button class="pause" v-else @click="pause">Pause <i class="far fa-pause-circle"></i></button>
+          <button class="next" @click="next">Next <i class="fas fa-step-forward"></i></button>
         </div>
       </section>
       <section class="playlist">
@@ -156,6 +156,7 @@ main {
         border: none;
         outline: none;
         cursor: pointer;
+        transition: .2s;
 
         &:hover {
           opacity: .8;
