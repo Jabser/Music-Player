@@ -6,7 +6,14 @@
     </header>
     <main>
       <section class="player">
-        <h2 class="song-title">{{ current.title }} - <span>{{ current.artist }}</span></h2>
+        <div class="song-card">
+          <img :src="current.cover" class="img-fluid" alt="song cover" >
+          <h2 class="song-title">
+            {{ current.title }}
+            <br>
+            <span>{{ current.artist }}</span>
+          </h2>
+        </div>
         <div class="controls">
           <button class="prev" @click="prev"><i class="fas fa-step-backward"></i> Prev</button>
           <button class="play" v-if="!isPlaying" @click="play">Play <i class="far fa-play-circle"></i></button>
@@ -36,17 +43,20 @@ export default {
         {
           title: 'Circles',
           artist: 'Post Malone',
-          src: require('./assets/music/circles.mp3')
+          src: require('./assets/music/circles.mp3'),
+          cover: require('./assets/covers/circles.png')
         },
         {
           title: 'Paris',
           artist: 'The Chainsmokers',
-          src: require('./assets/music/paris.mp3')
+          src: require('./assets/music/paris.mp3'),
+          cover: require('./assets/covers/paris.png')
         },
         {
           title: 'Blinding Lights',
           artist: 'The Weeknd',
-          src: require('./assets/music/blinding-lights.mp3')
+          src: require('./assets/music/blinding-lights.mp3'),
+          cover: require('./assets/covers/blinding-lights.png')
         }
       ],
       player: new Audio()
@@ -117,8 +127,9 @@ header {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color: #212121;
+  background-image: linear-gradient(to right, #CC2E5D, #FF5858);
   color: #fff;
+  margin-bottom: 50px;
 
   img {
     margin-right: 20px;
@@ -130,18 +141,34 @@ main {
   max-width: 768px;
   margin: 0 auto;
   padding: 25px;
+  border-radius: .75rem;
+  border: 1px solid #e5e8ed;
+  box-shadow: 0 2px 4px rgba(3,27,78,.06);
 
   .player {
-    .song-title {
-      color: #53565A;
-      font-size: 32px;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-align: center;
+    .song-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      span {
-        font-weight: 400;
-        font-style: italic;
+      img {
+        width: 256px;
+        height: 256px;
+        display: block;
+        margin: 0 30px 0 0;
+        border-radius: .50rem;
+      }
+      .song-title {
+        color: #53565A;
+        font-size: 32px;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        span {
+          font-weight: 400;
+          font-style: italic;
+          font-size: 70%;
+        }
       }
     }
     .controls {
@@ -188,6 +215,7 @@ main {
   }
   .playlist {
     padding: 0 30px;
+    margin-top: 50px;
 
     h3 {
       color: #212121;
