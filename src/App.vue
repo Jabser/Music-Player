@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <header>
-      <img src="./assets/logo.svg" class="img-fluid" alt="site logo">
-      <h1>Music Player</h1>
-    </header>
     <main>
+      <header>
+        <img src="./assets/logo.svg" class="img-fluid" alt="site logo">
+        <h1>Music Player</h1>
+      </header>
       <section class="player">
         <div class="song-card">
           <img :src="current.cover" class="img-fluid" alt="song cover" >
@@ -120,30 +120,30 @@ export default {
 
 body {
   font-family: sans-serif;
+  background: #2f3136;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background-image: linear-gradient(to right, #CC2E5D, #FF5858);
-  color: #fff;
-  margin-bottom: 50px;
-
-  img {
-    margin-right: 20px;
-  }
-}
 
 main {
   width: 100%;
   max-width: 768px;
-  margin: 0 auto;
+  margin: 5vh auto;
   padding: 25px;
   border-radius: .75rem;
-  border: 1px solid #e5e8ed;
-  box-shadow: 0 2px 4px rgba(3,27,78,.06);
+  box-shadow: 0 2px 10px 0 rgba(0,0,0,.2);
+  background-color: #36393f;
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 50px;
+
+    img {
+      margin-right: 20px;
+    }
+  }
 
   .player {
     .song-card {
@@ -159,7 +159,7 @@ main {
         border-radius: .50rem;
       }
       .song-title {
-        color: #53565A;
+        color: #fff;
         font-size: 32px;
         font-weight: 700;
         text-transform: uppercase;
@@ -218,7 +218,7 @@ main {
     margin-top: 50px;
 
     h3 {
-      color: #212121;
+      color: #fff;
       font-size: 28px;
       font-weight: 400;
       margin-bottom: 30px;
@@ -236,6 +236,7 @@ main {
       font-size: 20px;
       font-weight: 700;
       cursor: pointer;
+      color: #fff;
 
       &:hover {
         color: #FF5858;
