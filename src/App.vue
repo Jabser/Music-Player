@@ -15,16 +15,16 @@
           </h2>
         </div>
         <div class="controls">
-          <button class="prev" @click="prev"><i class="fas fa-step-backward"></i> Prev</button>
-          <button class="play" v-if="!isPlaying" @click="play">Play <i class="far fa-play-circle"></i></button>
-          <button class="pause" v-else @click="pause">Pause <i class="far fa-pause-circle"></i></button>
-          <button class="next" @click="next">Next <i class="fas fa-step-forward"></i></button>
+          <button class="prev" @click="prev"><i class="fas fa-step-backward"></i></button>
+          <button class="play" v-if="!isPlaying" @click="play"><i class="far fa-play-circle"></i></button>
+          <button class="pause" v-else @click="pause"><i class="far fa-pause-circle"></i></button>
+          <button class="next" @click="next"><i class="fas fa-step-forward"></i></button>
         </div>
       </section>
       <section class="playlist">
         <h3>The Playlist</h3>
         <button v-for="song in songs" :key="song.src" @click="play(song)" :class="(song.src == current.src) ? 'song playing' : 'song'">
-          {{ song.title }} - {{ song.artist }}
+          <i class="fas fa-volume-up"></i> {{ song.title }} - {{ song.artist }}
         </button>
       </section>
     </main>
@@ -150,6 +150,7 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: .2s;
 
       img {
         width: 256px;
@@ -161,13 +162,13 @@ main {
       .song-title {
         color: #fff;
         font-size: 32px;
-        font-weight: 700;
-        text-transform: uppercase;
+        font-weight: bold;
 
         span {
           font-weight: 400;
-          font-style: italic;
           font-size: 70%;
+          text-transform: none;
+          color: #ccc;
         }
       }
     }
@@ -186,29 +187,29 @@ main {
         transition: .2s;
 
         &:hover {
-          opacity: .8;
+          color: #fff !important;
+        }
+
+        &::-moz-focus-inner {
+          border: none;
         }
 
         &.play,
         &.pause {
-          font-size: 20px;
+          font-size: 4rem;
           font-weight: 700;
           padding: 15px 25px;
-          margin: 0 15px;
-          border-radius: 8px;
-          color: #fff;
-          background-color: #CC2E5D;
+          color: #ccc;
+          background-color: transparent;
         }
 
         &.next,
         &.prev {
-          font-size: 16px;
+          font-size: 1.6rem;
           font-weight: 700;
           padding: 10px 20px;
-          margin: 0 15px;
-          border-radius: 6px;
-          color: #fff;
-          background-color: #FF5858;
+          color: #ccc;
+          background-color: transparent;
         }
       }
     }
@@ -220,7 +221,7 @@ main {
     h3 {
       color: #fff;
       font-size: 28px;
-      font-weight: 400;
+      font-weight: bold;
       margin-bottom: 30px;
       text-align: center;
     }
@@ -236,16 +237,30 @@ main {
       font-size: 20px;
       font-weight: 700;
       cursor: pointer;
-      color: #fff;
+      color: #ccc;
+
+      transition: .2s;
 
       &:hover {
-        color: #FF5858;
+        color: #fff;
+      }
+
+      &::-moz-focus-inner {
+        border: none;
+      }
+
+      i {
+        color: transparent;
       }
 
       &.playing {
         color: #FFF;
         border: none;
-        background-image: linear-gradient(to right, #CC2E5D, #FF5858);
+        background-color: #484b50;
+
+        i {
+          color: #fff;
+        }
       }
     }
   }
